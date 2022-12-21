@@ -1,0 +1,15 @@
+C:\Users\sasha\OneDrive\Рабочий стол\git\bin\Debug\net7.0\git.exe
+C:\Users\sasha\OneDrive\Рабочий стол\git\bin\Debug\net7.0\git.deps.json
+C:\Users\sasha\OneDrive\Рабочий стол\git\bin\Debug\net7.0\git.runtimeconfig.json
+C:\Users\sasha\OneDrive\Рабочий стол\git\bin\Debug\net7.0\git.dll
+C:\Users\sasha\OneDrive\Рабочий стол\git\bin\Debug\net7.0\git.pdb
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.csproj.AssemblyReference.cache
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.AssemblyInfoInputs.cache
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.AssemblyInfo.cs
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.csproj.CoreCompileInputs.cache
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.dll
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\refint\git.dll
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.pdb
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\git.genruntimeconfig.cache
+C:\Users\sasha\OneDrive\Рабочий стол\git\obj\Debug\net7.0\ref\git.dll
