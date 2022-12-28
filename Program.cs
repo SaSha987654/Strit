@@ -22,11 +22,22 @@ void Main()
 			case "Task34": Task34(); break;
 			case "Task36": Task36(); break;
 			case "Task38": Task38(); break;
-			case "Task57": Task57(); break;
+			case "Task41": Task41(); break;
+			case "Task43": Task43(); break;
 			case "exit": isWorking = false; break;
 		}
 		Console.WriteLine();
 	}
+}
+
+void Task36()
+{
+    throw new NotImplementedException();
+}
+
+void Task57()
+{
+    throw new NotImplementedException();
 }
 
 void Task2()
@@ -386,7 +397,9 @@ int[,] Copy(int[,] array)
 Task34();
 
 void Task34()
-Console.WriteLine("Введите длину массива:  ");
+{
+	Console.WriteLine("Введите длину массива:  ");
+}
 int size = Convert.ToInt32(Console.ReadLine());
 int[] numbers = new int[size];
 RandonNumbers(numbers);
@@ -423,12 +436,12 @@ void PrintArray(int[] numbers)
     Console.WriteLine();
 }
 
-Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
-[3, 7, 23, 12] -> 19
-[-4, -6, 89, 6] -> 0
-*/
+
+//Task36();
+Task36();
 
 void Task36()
+
 int size = 4;
 int[] numbers = new int[size];
 FillArrayRandomNumbers(numbers);
@@ -511,3 +524,95 @@ void PrintArray(int[] array)
     }
     Console.WriteLine();
 }
+ 
+//Task41();
+Task41();
+
+void Task41()
+{
+    throw new NotImplementedException();
+}
+
+Console.Write("Введите числа через запятую: ");
+int[] numbers = StringToNum(Console.ReadLine());
+PrintArray(numbers);
+int sum = 0;
+for (int i = 0; i < numbers.Length; i++)
+{
+    if (numbers[i] > 0)
+    {
+        sum++;
+    }
+}
+Console.WriteLine();
+Console.WriteLine($"количество значений больше 0 = {sum}");
+
+
+int[] StringToNum(string input)
+{
+    int count = 1;
+    for (int i = 0; i < input.Length; i++)
+    {
+        if (input[i] == ',')
+        {
+            count++;
+        }
+    }
+
+    int[] numbers = new int [count];
+    int index = 0;
+
+    for (int i = 0; i < input.Length; i++)
+    {
+        string temp = "";
+
+        while (input [i] != ',')
+        {
+        if(i != input.Length - 1)
+        {
+            temp += input [i].ToString();
+            i++;
+        }
+        else
+        {
+            temp += input [i].ToString();
+            break;
+        }
+        }
+        numbers[index] = Convert.ToInt32(temp);
+        index++;
+    }
+    return numbers;
+}
+
+
+void PrintArray(int[] array)
+{
+    Console.Write("[ ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.Write("]");
+}
+//Task43();
+Task43();
+
+void Task43()
+{
+    throw new NotImplementedException();
+}
+
+Console.WriteLine("введите значение b1");
+double b1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите число k1");
+double k1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите значение b2");
+double b2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите число k2");
+double k2 = Convert.ToInt32(Console.ReadLine());
+
+double x = (-b2 + b1)/(-k1 + k2);
+double y = k2 * x + b2;
+
+Console.WriteLine($"две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
