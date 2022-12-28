@@ -16,6 +16,13 @@ void Main()
 			case "Task19": Task19(); break;
 			case "Task25": Task25(); break;
 			case "Task29": Task29(); break;
+			case "Task55": Task55(); break;
+			case "Task53": Task53(); break;
+			case "Task57": Task57(); break;
+			case "Task34": Task34(); break;
+			case "Task36": Task36(); break;
+			case "Task38": Task38(); break;
+			case "Task57": Task57(); break;
 			case "exit": isWorking = false; break;
 		}
 		Console.WriteLine();
@@ -205,4 +212,302 @@ string ArrayToString(int[] array)
 	}
 
 	return result;
+}
+
+//Task53();
+Task55();
+
+void Task53()
+{
+	int[,] array = GetTwoDimensionArray(ReadInt("First Length"), ReadInt("Secomd Length"));
+
+	PrintArray(array);
+	ChangeFirstAndLastRows(array);
+	PrintArray(array);
+}
+
+#region CommonMethods
+int ReadInt(string argument)
+{
+	Console.Write($"Input {argument}: ");
+	return int.Parse(Console.ReadLine());
+}
+
+void PrintArray(int[,] array)
+{
+	for (int i = 0; i < array.GetLength(0); i++)
+	{
+		for (int j = 0; j < array.GetLength(1); j++)
+		{
+			Console.Write($"{array[i, j]} ");
+		}
+		Console.WriteLine();
+	}
+
+	Console.WriteLine();
+}
+
+int[,] GetTwoDimensionArray(int firstLength, int secondLength)
+{
+	int[,] array = new int[firstLength, secondLength];
+	Random rnd = new Random();
+
+	for (int i = 0; i < firstLength; i++)
+	{
+		for (int j = 0; j < secondLength; j++)
+		{
+			array[i, j] = rnd.Next(100);
+		}
+	}
+
+	return array;
+}
+
+#endregion
+
+#region Task53 
+void ChangeFirstAndLastRows(int[,] array)
+{
+	int[] firstRow = GetFirstRow(array);
+	PutLastRowOnFirstRow(array);
+	PutFirstRowOnLastRow(array, firstRow);
+}
+
+
+int[] GetFirstRow(int[,] array)
+{
+	int[] tempArray = new int[array.GetLength(0)];
+
+	for (int i = 0; i < array.GetLength(1); i++)
+	{
+		tempArray[i] = array[0, i];
+	}
+
+	return tempArray;
+}
+
+void PutLastRowOnFirstRow(int[,] array)
+{
+	int lastRowIndex = array.GetLength(0) - 1;
+
+	for (int i = 0; i < array.GetLength(1); i++)
+	{
+		array[0, i] = array[lastRowIndex, i];
+	}
+}
+
+void PutFirstRowOnLastRow(int[,] array, int[] firstRow)
+{
+	int lastRowIndex = array.GetLength(0) - 1;
+
+	for (int i = 0; i < array.GetLength(1); i++)
+	{
+		array[lastRowIndex, i] = firstRow[i];
+	}
+}
+#endregion
+
+
+#region Task55
+
+void Task55()
+{
+	int[,] array = GetTwoDimensionArray(ReadInt("First Length"), ReadInt("Second Length"));
+	PrintArray(array);
+
+	if (!IsPossibleToChangeRowToColumns(array))
+	{
+		Console.WriteLine("Incorrect array");
+		return;
+	}
+
+	int[,] copy = Copy(array);
+
+	for (int i = 0; i < array.GetLength(0); i++)
+	{
+		ChangeRowOnColumn(array, copy, i);
+	}
+
+	PrintArray(array);
+}
+
+bool IsPossibleToChangeRowToColumns(int[,] array)
+{
+	return array.GetLength(0) < array.GetLength(1);
+}
+
+int[] GetRow(int[,] array, int rowNumber)
+{
+	int[] tempArray = new int[array.GetLength(0)];
+
+	for (int i = 0; i < array.GetLength(0); i++)
+	{
+		tempArray[i] = array[rowNumber, i];
+	}
+
+	return tempArray;
+}
+
+void ChangeRowOnColumn(int[,] array, int[,] copy, int row)
+{
+	int[] changebaleRow = GetRow(copy, row);
+
+	for (int i = 0; i < array.GetLength(1); i++)
+	{
+		if (i < changebaleRow.Length)
+		{
+			array[i, row] = changebaleRow[i];
+		}
+		else
+		{
+
+			array[row, array.GetLength(1) - (array.GetLength(1) - i)] = 0;
+		}
+	}
+
+}
+
+int[,] Copy(int[,] array)
+{
+	int[,] copy = new int[array.GetLength(0), array.GetLength(1)];
+
+	for (int i = 0; i < array.GetLength(0); i++)
+	{
+		for (int j = 0; j < array.GetLength(1); j++)
+		{
+			copy[i, j] = array[i, j];
+		}
+	}
+
+	return copy;
+}
+
+//Task34();
+Task34();
+
+void Task34()
+Console.WriteLine("Введите длину массива:  ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] numbers = new int[size];
+RandonNumbers(numbers);
+Console.WriteLine("В этом массиве: ");
+PrintArray(numbers);
+
+void RandonNumbers(int[] numbers)
+{
+    for(int i = 0; i < size; i++)
+    {
+        numbers[i] = new Random().Next(100,1000);
+    }
+}
+
+
+int count = 0;
+
+for (int x = 0; x < numbers.Length; x++)
+{
+if (numbers[x] % 2 == 0)
+count++;
+}
+Console.WriteLine($"из {numbers.Length} чисел, {count} четных");
+
+
+void PrintArray(int[] numbers)
+{
+    Console.Write("[ ");
+    for(int i = 0; i < numbers.Length; i++)
+    {
+        Console.Write(numbers[i] + " ");
+    }
+    Console.Write("]");
+    Console.WriteLine();
+}
+
+Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+[3, 7, 23, 12] -> 19
+[-4, -6, 89, 6] -> 0
+*/
+
+void Task36()
+int size = 4;
+int[] numbers = new int[size];
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
+
+int sumNumbersEvenIndex = 0;
+
+for (int i = 1; i < numbers.Length; i += 2)
+{
+    sumNumbersEvenIndex += numbers[i];
+}
+Console.Write(sumNumbersEvenIndex);
+
+
+
+void FillArrayRandomNumbers(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(-100, 101);
+    }
+}
+
+void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.WriteLine();
+}
+
+
+
+/*
+Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементами массива.
+[3 7 22 2 78] -> 76
+*/
+void Task38()
+int size = 10;
+int[] numbers = new int[size];
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
+
+int max = numbers[0];
+int min = numbers[0];
+
+for (int i = 0; i < numbers.Length; i++)
+{
+    if (numbers[i] > max)
+    {
+        max = numbers[i];
+    }
+    else if (numbers[i] < min)
+    {
+        min = numbers[i];
+    }
+}
+
+Console.WriteLine($"Минимальное число: {min}");
+Console.WriteLine($"Минимальное число: {max}");
+Console.WriteLine($"Разница между максимальным и минимальным числами: {max-min}");
+
+
+
+void FillArrayRandomNumbers(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(1, 555);
+    }
+}
+
+
+void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.WriteLine();
 }
